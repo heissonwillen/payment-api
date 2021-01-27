@@ -6,8 +6,8 @@ def create_app(config_class=Config):
 	app = Flask(__name__)
 	app.config.from_object(Config)
 
-	from flaskblog.users.routes import users
+	from api.views.views import blueprint
 
-	app.register_blueprint(users)
+	app.register_blueprint(blueprint)
 
 	return app
