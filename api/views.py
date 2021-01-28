@@ -11,9 +11,9 @@ class ProcessPaymentView(MethodView):
         card_data = request.form
         if card_data_is_valid(card_data):
             try:    
+                # Make payment
                 print("Payment processed")
                 return {"Status code": "200"}, 200
-                # Make payment
             except:
                 # Internal server error
                 abort(500)
