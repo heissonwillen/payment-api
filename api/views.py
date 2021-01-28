@@ -1,15 +1,15 @@
 from flask import Blueprint, request, abort, jsonify
 from flask.views import MethodView
 
+from .utils import card_data_is_valid
 
 blueprint = Blueprint("views", __name__, url_prefix="/")
 
 
 class ProcessPaymentView(MethodView):
     def post(self):
-        print("Processing payment")
-        print(request.form["CreditCardNumber"])
-        abort(404)
+        print(card_data_is_valid(request.form))
+        abort(400)
 
 
 process_payment = ProcessPaymentView.as_view('process_payment')
