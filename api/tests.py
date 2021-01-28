@@ -6,17 +6,6 @@ from config import FLASK_RUN_HOST, FLASK_RUN_PORT
 
 URL = f"http://{FLASK_RUN_HOST}:{FLASK_RUN_PORT}/ProcessPayment"
 
-# requests.post(
-#     "http://127.0.0.1:5000/ProcessPayment",
-#     data={
-#         "CreditCardNumber": "CreditCardNumber",
-#         "CardHolder": "CardHolder",
-#         "ExpirationDate": "ExpirationDate",
-#         "SecurityCode": "SecurityCode",
-#         "Amount": "Amount",
-#     }
-# )
-
 
 def test_invalid_request_type():
     response = requests.get(URL)

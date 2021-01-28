@@ -1,7 +1,7 @@
 from flask import Blueprint, request, abort, jsonify
 from flask.views import MethodView
 
-from .utils import card_data_is_valid
+from api.utils import card_data_is_valid
 
 blueprint = Blueprint("views", __name__, url_prefix="/")
 
