@@ -8,8 +8,17 @@ blueprint = Blueprint("views", __name__, url_prefix="/")
 
 class ProcessPaymentView(MethodView):
     def post(self):
-        print(card_data_is_valid(request.form))
-        abort(400)
+        card_data = request.form
+        if card_data_is_valid(card_data):
+            try:    
+                print("Payment processed")
+                return {"Status code": "200"}, 200
+                # Make payment
+            except:
+                # Internal server error
+                abort(500)
+        else:
+            abort(400)
 
 
 process_payment = ProcessPaymentView.as_view('process_payment')

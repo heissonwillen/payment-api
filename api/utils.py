@@ -3,6 +3,8 @@ from datetime import datetime
 
 
 def card_data_is_valid(card):
+    print(card)
+
     card_number = card.get("CreditCardNumber")
     if (card_number is None) or (not CreditCardChecker(str(card_number)).valid()):
         print("Invalid card number")
@@ -19,7 +21,7 @@ def card_data_is_valid(card):
         return False
     else:
         try:
-            if datetime.strptime(expiration_date, "%Y-%m") < datetime.now():
+            if datetime.strptime(expiration_date, "%m-%Y") < datetime.now():
                 print("Expiration date is in the past")
                 return False
         except ValueError:
@@ -27,7 +29,7 @@ def card_data_is_valid(card):
             return False
 
     security_code = card.get("SecurityCode")
-    if (not security_code is None) and len(security_code) == 3:
+    if (not security_code is None) and len(security_code) != 3:
         print("Invalid security code")
         return False
 
