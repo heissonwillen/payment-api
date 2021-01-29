@@ -36,7 +36,7 @@ class ExternalPayment:
 	
 	def make_payment(self):
 		payment_succefully = False
-		
+
 		if self.amount < 20:
 			gateway = CheapPaymentGateway()
 			payment_succefully = gateway.pay()
@@ -53,4 +53,7 @@ class ExternalPayment:
 				if payment_succefully:
 					return True
 
-		return payment_succefully
+		if not payment_succefully:
+			raise Exception("Payment not processed")
+		
+		return True
