@@ -87,8 +87,26 @@ def test_invalid_expiration_date():
 
 
 def test_security_code():
-    pass
+    response_1 = requests.post(URL,    
+        data={
+            "CreditCardNumber": "4013306731172993",
+            "CardHolder": "Celedor Chimaobim",
+            "ExpirationDate": "08-2023",
+            "SecurityCode": "209",
+            "Amount": "6000",
+        })
 
+    response_2 = requests.post(URL,    
+        data={
+            "CreditCardNumber": "4016098843694561",
+            "CardHolder": "Davide Maciejewski",
+            "ExpirationDate": "04-2029",
+            "SecurityCode": "487",
+            "Amount": "8777",
+        })
+
+    assert response_1.status_code == 200
+    assert response_2.status_code == 200
 
 test_invalid_request_type()
 test_invalid_payment_data()
