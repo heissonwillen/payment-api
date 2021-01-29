@@ -128,7 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Coding test file 
-coding-test.pdf
-
 .vscode
