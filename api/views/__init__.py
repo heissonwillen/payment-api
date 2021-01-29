@@ -2,6 +2,7 @@ from flask import Blueprint, request, abort, jsonify
 from flask.views import MethodView
 
 from api.utils import card_data_is_valid
+from api.services import foo
 
 blueprint = Blueprint("views", __name__, url_prefix="/")
 
@@ -13,6 +14,7 @@ class ProcessPaymentView(MethodView):
             try:    
                 # Make payment
                 print("Payment processed")
+                foo()
                 return {"Status code": "200"}, 200
             except:
                 # Internal server error

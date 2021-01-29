@@ -130,3 +130,5 @@ dmypy.json
 
 # Coding test file 
 coding-test.pdf
+
+.vscode
