@@ -1,8 +1,8 @@
-from flask import Blueprint, request, abort, jsonify
+from flask import Blueprint, request, abort, Response
 from flask.views import MethodView
 
 from api.utils import card_data_is_valid
-from api.services import foo
+from api.services import ExternalPayment
 
 blueprint = Blueprint("views", __name__, url_prefix="/")
 
@@ -12,12 +12,11 @@ class ProcessPaymentView(MethodView):
         card_data = request.form
         if card_data_is_valid(card_data):
             try:    
-                # Make payment
-                print("Payment processed")
-                foo()
-                return {"Status code": "200"}, 200
+                amount = float(card_data["Amount"])
+                payment = ExternalPayment(amount)
+                payment.make_payment()
+                return Response({"Payment status": "Succefully processed"}, status=200)
             except:
-                # Internal server error
                 abort(500)
         else:
             abort(400)
