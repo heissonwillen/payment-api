@@ -2,7 +2,7 @@ import requests
 import pytest
 import json
 
-from config import FLASK_RUN_HOST, FLASK_RUN_PORT
+from .config import FLASK_RUN_HOST, FLASK_RUN_PORT
 
 URL = f"http://{FLASK_RUN_HOST}:{FLASK_RUN_PORT}/ProcessPayment"
 
@@ -108,9 +108,9 @@ def test_security_code():
     assert response_1.status_code == 200
     assert response_2.status_code == 200
 
-test_invalid_request_type()
-test_invalid_payment_data()
-test_blank_payment_data()
-test_valid_payment_data()
-test_invalid_expiration_date()
-test_security_code()
+# test_invalid_request_type()
+# test_invalid_payment_data()
+# test_blank_payment_data()
+# test_valid_payment_data()
+# test_invalid_expiration_date()
+# test_security_code()
