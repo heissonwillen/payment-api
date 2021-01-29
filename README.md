@@ -5,16 +5,12 @@
     <br />
 </p>
 
-<!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#built with">Built With</a></li>
-    <li><a href="#running the api">Running the API</a></li>
-    <li><a href="#testing the application
-">Testing the Application
-</a></li>
-    <li><a href="#Considerations">Considerations</a></li>
+    <li><a href="#built">Built With</a></li>
+    <li><a href="#running">Running the API</a></li>
+    <li><a href="#testing">Testing the Application</a></li>
   </ol>
 </details>
 
